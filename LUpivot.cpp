@@ -42,7 +42,10 @@ void LUpivot (double ** a, double ** l, int * p, int m) {
         }
 
         for(j = i + 1; j < m; j++) {
+            /* update entry in row j, column i of matrix L */
             l[i][j] = a[i][j]/a[i][i];
+
+            /* a[i:m][j] -= l[i][j] a[i:m][i] */
             rowsubrow(a, l[i][j], m - i, i, j, i);   
         }
     }
