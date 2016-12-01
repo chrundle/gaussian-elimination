@@ -104,18 +104,8 @@ int main () {
     }
     printf("\n");
 
-    /* execute householder recudtion to hessenberg form */
+    /* execute LU factorization routine */
     LUpivot(a, l, p, m);
-
-    /* print the matrix U (stored in A) after calling LUpivot */
-    printf("R = \n");
-    for(i = 0; i < m; i++) {
-        for(j = 0; j < m; j++) {
-            printf("%9.6g ", a[j][i]);
-        }
-        printf("\n");
-    }
-    printf("\n");
 
     /* print the matrix L after calling LUpivot */
     printf("L = \n");
@@ -127,6 +117,16 @@ int main () {
         j++;
         for(; j < m; j++) {
             printf("%9.6g ", l[j][i]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+    /* print the matrix U (stored in A) after calling LUpivot */
+    printf("U = \n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < m; j++) {
+            printf("%9.6g ", a[j][i]);
         }
         printf("\n");
     }
